@@ -1,0 +1,30 @@
+<%= flash[:add_space_success] %>
+
+<h2><%= @space.space_name %></h2>
+<p>£<%= @space.rate %> per night</p>
+<h3>Description:</h3>
+<p><%= @space.description %></p>
+
+<%= flash[:user_not_signed_in] %>
+<h2>Book Now!</h2>
+<form method="post" action="/booking/<%=@space.id%>">
+  <label for='date_from'>
+    Check in
+  </label>
+  <br>
+  <br>
+  <input name="date_from" type="date" required oninvalid="this.setCustomValidity('Choose a check in date')"
+  oninput="this.setCustomValidity('')">
+  <br>
+  <br>
+  <label for='date_from'>
+    Check out
+  </label>
+  <br>
+  <br>
+  <input name="date_to" type="date" required oninvalid="this.setCustomValidity('Choose a check out date')"
+  oninput="this.setCustomValidity('')">
+  <br>
+  <br>
+  <input type="submit" value="Submit Request">
+</form>
